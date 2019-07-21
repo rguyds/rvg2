@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html ng-app="demo">
+<head>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/demoController.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.min.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body ng-controller="demoController">
+
+    <div class="container">
+
+       
+
+        <form>
+            <fieldset>
+                <legend>Student Profile</legend>
+                <div class="row">
+                    <div class="col-lg-2 col-xs-offset-5 col1">Student: <input type="text" required class="form-control input-group-sm" ng-model="Studentdata.Student_ID" ng-change="getData()"></div>
+                </div>
+                <br />
+                <div class="row" ng-click="showPI()">
+                    <div class="col-lg-12 col-xs-offset-5 col1">
+                        <h5>
+                            <b>A. Personal Information<i class="{{PIclass}}"></i><br /></b>
+                        </h5>
+                        <hr />
+                    </div>
+                </div>
+                <div ng-show="PI">
+                    <div class="row">
+                        <div class="col-lg-2">First Name: </div><div class="col-lg-2"><input type="text" required class="form-control input-group-sm" ng-model="Studentdata.First_Name"></div>
+                        <div class="col-lg-2">Middle Name:</div><div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Middle_Name"></div>
+                        <div class="col-lg-2">Last Name:</div><div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Last_Name"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2"> Birth Date:</div><div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Birth_Date"></div>
+                        <div class="col-lg-2"> Gender:</div><div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Gender"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">Height:</div><div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Height"></div>
+                        <div class="col-lg-2"> Weight: </div><div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Weight"></div>
+                        <div class="col-lg-2"> Blood Type:</div><div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Blood_Type"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">Contact Number: </div><div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Contact_Number"></div>
+                        <div class="col-lg-2"> Email: </div> <div class="col-lg-6"><input type="text" required class="form-control" ng-model="Studentdata.Email"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">Facebook/Twitter: </div> <div class="col-lg-6"><input type="text" required class="form-control" ng-model="Studentdata.Facebook_Twitter"></div>
+                        <div class="col-lg-2"> Learner Ref. No: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.LearnerRefNo"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">Entry Period: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Entry_Period"></div>
+                        <div class="col-lg-2"> Date Enrolled: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Date_Enrolled"></div>
+                        <div class="col-lg-2"> Date Started: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Date_Started"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">Exam Result: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Exam_Result"></div>
+                        <div class="col-lg-2"> Sponsor: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Sponsor"></div>
+                    </div>
+
+                </div>
+            </fieldset>
+
+
+            <div class="row" ng-click="showAC()">
+                <div class="col-lg-12 col-xs-offset-5 col1">
+                    <h5>
+                        <b>B. Addresses & Contacts<i class="{{ACclass}}"></i><br /></b>
+                    </h5>
+                    <hr />
+                </div>
+            </div>
+            <div ng-show="AC">
+                <div class="row">
+                    <div class="col-lg-2">Present Address: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.Present_Address"></div>
+                    <div class="col-lg-2"> Municipality: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.PMunicipality"></div>
+                    <div class="col-lg-2"> Zip Code: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.PZipCode"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">Home Address: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.HomeAddress"></div>
+                    <div class="col-lg-2"> Municipality: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.HMunicipality"></div>
+                    <div class="col-lg-2"> Zip Code: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.HZipCode"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">Father's name: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.FathersName"></div>
+                    <div class="col-lg-2"> Contacts no.s: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.FContactNo"></div>
+                    <div class="col-lg-2"> Occupation: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.FOccupation"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">Mother's name: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.MothersName"></div>
+                    <div class="col-lg-2"> Contacts no.s: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.MContactNo"></div>
+                    <div class="col-lg-2"> Occupation: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.MOccupation"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">Guardian's name: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.GuardiansName"></div>
+                    <div class="col-lg-2"> Contact no.s: </div> <div class="col-lg-2"><input type="text" required class="form-control" ng-model="Studentdata.GContactNo"></div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-xs-offset-5 col1">
+                    <h5>
+                        <b>C. Educational Background ...<br /></b>
+                    </h5>
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-xs-offset-5 col1">
+                    <h5>
+                        <b>D. Religious Background ...<br /></b>
+                    </h5>
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-xs-offset-5 col1">
+                    <h5>
+                        <b>F. OJT Records ...<br /></b>
+                    </h5>
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-xs-offset-5 col1">
+                    <h5>
+                        <b>G. Medical Info ...<br /></b>
+                    </h5>
+                    <hr />
+                </div>
+            </div>
+            <div class="row" ng-click="showEmploymentRecords()">
+                <div class="col-lg-12 col-xs-offset-5 col1">
+                    <h5>
+                        <b>H. Employment Records </b><i class="{{ERecordsclass}}"></i><br />
+                    </h5>
+
+                    <hr />
+                </div>
+            </div>
+            <div ng-show="ERecords">
+                <!--<div class="row">
+            <div class="col-lg-2">Student: </div><div class="col-lg-3"><input type="text" required class="form-control input-group-sm" ng-model="Studentdata.MothersName"></div>
+        </div>-->
+                <div class="row">
+                    <div class="col-lg-2">Company: </div><div class="col-lg-6"><input type="text" required class="form-control input-group-sm" ng-model="Studentdata.Company"></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">From: </div><div class="col-lg-2"><input type="text" required class="form-control input-group-sm" ng-model="Studentdata.FromCompany"></div>
+                    <div class="col-lg-2">To: </div><div class="col-lg-2"><input type="text" required class="form-control input-group-sm" ng-model="Studentdata.ToCompany"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2">Position: </div><div class="col-lg-6"><input type="text" required class="form-control input-group-sm" ng-model="Studentdata.Position"></div>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-default" value="Submit" ng-click="submit()">
+            <input type="submit" class="btn btn-default" value="update" ng-click="update()">
+            <input type="submit" class="btn btn-default" value="delete" ng-click="delete()">
+
+        </form>
+    </div>
+   
+</body>
+</html>
